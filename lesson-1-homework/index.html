@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./common.css"/>
+  <title>ByteDance-SJTU FE hw1</title>
+</head>
+
+<body>
+  <div class="container" style="margin-left: 38%; margin-top: 200px;">
+    <div class="content">
+      <form>
+        <text class="label" font-size="40" y="20">
+          Fruit：
+        </text>
+  
+        <input list="fruits" name="fruit" id="input">
+          <datalist id="fruits">
+            <option value="Banana">
+            <option value="Cherry">
+            <option value="Apple">
+            <option value="Strawberry">
+            <option value="Lemon">
+            <option value="Orange">
+          </datalist>
+        </input>
+        
+        <button class="btn" 
+          onclick="alert('Favorite fruit is ' + document.getElementById('input').value + '!')">
+          Submit
+        </button>
+      </form>
+    </div>
+</body>
