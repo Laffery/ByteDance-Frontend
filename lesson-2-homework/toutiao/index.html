@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今日头条</title>
+    <link rel="shortcut icon" href="./assets/images/facicon.ico">
+    <link rel="stylesheet" href="./assets/styles/common.css">
+    <link rel="stylesheet" href="./assets/styles/header.css">
+    <link rel="stylesheet" href="./assets/styles/main.css">
+    <link rel="stylesheet" href="./assets/styles/left.css">
+    <link rel="stylesheet" href="./assets/styles/center.css">
+    <link rel="stylesheet" href="./assets/styles/right.css">
+</head>
+<body>
+    <div class="toutiao">
+        <header>
+            <div id="header-download-app">
+                <a href="https://app.toutiao.com" target="_blank" rel="noopener noreferrer">
+                    下载APP
+                </a>
+            </div>
+            <div id="header-sign-up">
+                <a href="https://mp.toutiao.com" target="_blank" rel="noopener noreferrer">
+                    注册头条号
+                </a>    
+            </div>
+            <div id="header-weather" rel="noopener noreferrer">
+                <span>&nbsp;北京</span>
+                <span>浮尘</span>
+                <span><em>4</em>℃ &nbsp; / &nbsp; <em>12</em>℃</span>
+                <i class="header-weather-icon"></i>
+            </div>
+            <div class="right-nav">
+                <div id="complaint">
+                    <a href="https://mp.toutiao.com/profile_v4_public/public/protocol/complains/" target="_blank" rel="noopener noreferrer">
+                        侵权投诉
+                    </a>
+                </div>
+                <div id="product">
+                    <a href="https://www.toutiao.com/about/" rel="noopener noreferrer">
+                        头条产品
+                    </a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="center">
+                <div class="content">
+                    <ul id="content-list"></ul>
+                </div>
+            </div>
+            <div class="left">
+                <div class="logo">
+                    <a href="https://www.toutiao.com/" rel="noopener noreferrer">
+                        <img src="assets/images/logo.png">
+                    </a>
+                </div>
+                <div class="channel-nav">
+                    <ul id="channel-ul"></ul>
+                </div>
+            </div>
+            <div class="right">
+                <div class="search-bar">
+                    <input class="search-input" placeholder="搜索站内资讯、视频或用户" value>       
+                    <button class="search-btn" type="button">搜索</button>
+                </div>
+
+                <div class="login">
+                    <div class="login-card">
+                        <p class="login-msg">
+                            登录后可以保存您的浏览喜好、评论、收藏，并与APP同步，更可以发布微头条
+                        </p>
+                        <a href="https://sso.toutiao.com">
+                            <button class="login-btn" type="button">登录</button>
+                        </a>
+                        <ul class="login-3rd">
+                            <li class="login-3rd-party qq">
+                                <span>QQ</span>
+                            </li>
+                            <li class="login-3rd-party wechat">
+                                <span>微信</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="more">
+                    <div class="more-card">
+                        <div class="more-header">更多</div>
+                        <ul id="more-links"></ul>
+                    </div>
+                </div>
+                <div class="friend-links">
+                    <div class="friend-links-card">
+                        <div class="friend-links-header">友情链接</div>
+                        <ul id="friend-links"></ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+<script type="text/javascript" src="./scripts/left-nav.js"></script>
+<script type="text/javascript" src="./scripts/content.js"></script>
+<script type="text/javascript" src="./scripts/more.js"></script>
+
+</html>

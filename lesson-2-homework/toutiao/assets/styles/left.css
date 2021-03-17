@@ -1,0 +1,39 @@
+.logo {
+    width: 108px;
+    height: 28px;
+    margin-bottom: 16px;
+}
+
+.logo img {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+}
+
+.channel-nav {
+    display: block;
+    width: 110px;
+    font: 16px/1.14 PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,Helvetica Neue,Arial,sans-serif;
+    text-align: center;
+}
+
+.channel-item {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 2px;
+    color: #444444;
+}
+
+.active {
+    background-color: #ed4040;
+    color: #fff;
+}
+
+.channel-item:hover {
+    background-color: #ed4040;
+    color: #fff;
+}
+
