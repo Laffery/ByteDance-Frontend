@@ -19,7 +19,7 @@
     这里选择**绝对定位**的网页布局进行模拟实现
 
     1. [列绝对定位](./layout/col_abs.html)
-    2. [列绝对定位标题脚注](./layout/col_abs_title_foot.html)
+    2. [列绝对定位标题脚注](./layout/col_abs_head_foot.html)
 
 3. 通关CSS选择器小游戏，截图如下
 
