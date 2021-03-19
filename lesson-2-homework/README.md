@@ -24,3 +24,7 @@
 3. 通关CSS选择器小游戏，截图如下
 
     ![css game pass](CSS-Selector-Game/css-pass.jpg)
+
+4. 动画制作
+
+   基于transform和高斯模糊实现的[animation](./animation/animation.html)，[参考](https://codemyui.com/matrix-inspired-text-scroll-animation/)
