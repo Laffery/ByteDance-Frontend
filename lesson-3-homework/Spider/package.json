@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "name": "spider",
+  "description": "🕷",
+  "version": "1.0.0",
+  "main": "spider.js",
+  "type": "module",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
