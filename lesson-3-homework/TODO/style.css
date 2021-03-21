@@ -1,0 +1,99 @@
+html{
+  min-height: 100%;
+  background-image: linear-gradient(#ff6161,#ff768c);
+  background-repeat: no-repeat;
+  font-family: sans-serif;
+  color: #0f222d;
+  background-size: auto;
+  overflow: hidden;
+}
+.main{
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+}
+h1{
+  text-align: center;
+  color: #fff;
+}
+form{
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 4px;
+}
+input[type="text"]{
+  width: 310px;
+  height: 30px;
+  outline: 0;
+  border: none;
+  font-size: 1.5em;
+  background: #fff;
+  color: #2f4f4f;
+}
+button{
+  font-size: 1.5em;
+  color: #53BDFF;
+  background-color: #fff;
+  outline: 0;
+  border: none;
+  width: 50px;
+  cursor: pointer;
+}
+.tasksBoard{
+  background-color: #fff;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 40px;
+  border-radius: 4px;
+}
+ul{
+  list-style: none;
+}
+li{
+  border-bottom: 1px solid #53BDFF;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-size: 1.3em;
+  color: #2f4f4f;
+  width: inherit;
+}
+li input {
+  cursor: pointer;
+}
+li span {
+  margin-left: 10px;
+}
+li button {
+  display: block;
+  float: right;
+  background: transparent;
+}
+a{
+  float: right;
+  text-align: right;
+  color: #ff6161;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+.delete{
+  background-color: #ff6161;
+  padding: 0px 3px 0px 3px;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .main{
+    margin: auto;
+    width: 100%;
+  }
+  input[type="text"]{
+    width: 80%;
+  }
+  button{
+    width: 10%;
+  }
+}
