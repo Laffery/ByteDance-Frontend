@@ -1,0 +1,62 @@
+header {
+    width: 110%;
+    margin-left: -5%;
+    background-color: #222;
+    height: 34px;
+    line-height: 34px;
+    color: #ffffff;
+    font-family: PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,Helvetica Neue,Arial,sans-serif;
+    font-size: 14px;
+}
+
+header > div {
+    float: left;
+}
+
+header div a {
+    color: #fff;
+    cursor: pointer;
+}
+
+header::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#header-download-app {
+    margin-left: 3.5vw;
+    padding: 0 10px;
+    border-right: 1px solid #3a3a3a;
+}
+
+#header-sign-up {
+    padding: 0 10px;
+}
+
+#header-weather {
+    padding-left: 7px;
+    cursor: pointer;
+}
+
+#header-weather span {
+    margin-right: 8px;
+}
+
+.header-weather-icon:before {
+    content: "\e607";
+}
+
+.right-nav {
+    float: right;
+    margin-right: 3.5vw;
+}
+
+.right-nav > div {
+    float: left;
+    padding: 0 10px;
+}
+
+#complaint {
+    border-right: 1px solid #3a3a3a;
+}
