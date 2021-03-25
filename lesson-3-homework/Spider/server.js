@@ -21,12 +21,12 @@ function start() {
         
         if (pathname === '/home') {
             first();
-            res.writeHead(200, {"Content-Type": "text/json"});
+        res.writeHead(200, {"Content-Type": "text/json", "Access-Control-Allow-Origin": '*'});
             res.end(fs.readFileSync('res.json'));
         }
         else if (pathname === '/more') {
             next();
-            res.writeHead(200, {"Content-Type": "text/json"});
+            res.writeHead(200, {"Content-Type": "text/json", "Access-Control-Allow-Origin": '*'});
             res.end(fs.readFileSync('res.json'));
         }
         else if (pathname === '/') {
@@ -44,6 +44,6 @@ function start() {
     log(`Server running at http://${hostname}:${port}/`);
 }
  
-// start();
+start();
 
 // export { start }

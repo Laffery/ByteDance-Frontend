@@ -1,6 +1,8 @@
 .content {
+    /* margin-left: -40px; */
     width: inherit;
-    font: 12px/1.14 PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,Helvetica Neue,Arial,sans-serif;
+    font-size: 12px;
+    line-height: 1.14;
     text-align: left;
 }
 
@@ -134,7 +136,6 @@
 }
 
 .content-image {
-    display: inline-block;
     cursor: pointer;
     vertical-align: middle;
     position: relative;
@@ -142,8 +143,8 @@
     transform-style: preserve-3d;
     width: 158px;
     margin-right: 16px;
-    float: left;
     line-height: 1;
+    float: left;
 }
 
 .content-image a {
@@ -164,8 +165,10 @@
 }
 
 .has-image {
+    width: 486px;
     vertical-align: middle;
     margin-top: auto;
+    float: left;
 }
 
 .has-image::before {
@@ -208,4 +211,8 @@
     color: #fff;
     height: 22px;
     line-height: 22px;
+}
+
+.video-tip span {
+    color: #fff;
 }

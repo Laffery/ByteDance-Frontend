@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>今日头条</title>
     <link rel="shortcut icon" href="./assets/images/facicon.ico">
-    <link rel="stylesheet" href="./assets/styles/common.css">
+    <link rel="stylesheet" href="./assets/styles/style.css">
     <link rel="stylesheet" href="./assets/styles/header.css">
     <link rel="stylesheet" href="./assets/styles/main.css">
     <link rel="stylesheet" href="./assets/styles/left.css">
@@ -14,25 +14,27 @@
     <link rel="stylesheet" href="./assets/styles/right.css">
 </head>
 <body>
-    <div class="toutiao">
-        <header>
-            <div id="header-download-app">
-                <a href="https://app.toutiao.com" target="_blank" rel="noopener noreferrer">
-                    下载APP
-                </a>
+    <div id="root">
+        <div id="header">
+            <div id="left-nav">
+                <div id="header-download-app">
+                    <a href="https://app.toutiao.com" target="_blank" rel="noopener noreferrer">
+                        下载APP
+                    </a>
+                </div>
+                <div id="header-sign-up">
+                    <a href="https://mp.toutiao.com" target="_blank" rel="noopener noreferrer">
+                        注册头条号
+                    </a>    
+                </div>
+                <div id="header-weather" rel="noopener noreferrer">
+                    <span>&nbsp;北京</span>
+                    <span>浮尘</span>
+                    <span><em>4</em>℃ &nbsp; / &nbsp; <em>12</em>℃</span>
+                    <i class="header-weather-icon"></i>
+                </div>
             </div>
-            <div id="header-sign-up">
-                <a href="https://mp.toutiao.com" target="_blank" rel="noopener noreferrer">
-                    注册头条号
-                </a>    
-            </div>
-            <div id="header-weather" rel="noopener noreferrer">
-                <span>&nbsp;北京</span>
-                <span>浮尘</span>
-                <span><em>4</em>℃ &nbsp; / &nbsp; <em>12</em>℃</span>
-                <i class="header-weather-icon"></i>
-            </div>
-            <div class="right-nav">
+            <div id="right-nav">
                 <div id="complaint">
                     <a href="https://mp.toutiao.com/profile_v4_public/public/protocol/complains/" target="_blank" rel="noopener noreferrer">
                         侵权投诉
@@ -44,21 +46,23 @@
                     </a>
                 </div>
             </div>
-        </header>
-        <main>
+        </div>
+        <div id="main">
+            <div class="left">
+                <div id="left-container">
+                    <div class="logo">
+                        <a href="https://www.toutiao.com/" rel="noopener noreferrer">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANgAAAA2CAMAAACSsKctAAAANlBMVEVHcEzuQEDwRETyRUX3TEzvQkLuQEDuQUHuQUHvQEDuQUHuQEDvQkLuQEDuQUHwQUHxQkLtQEDKaksGAAAAEXRSTlMAxiweDlyo49Nri/F5+bhLOapXaIgAAATMSURBVGje7ZrpsqQqDIAb2VEE3/9lx263AAmu3XVv1cn8mFOtIh+JIQuvFyFSzdK8/jsSrbg7BG+HSdjPZi3iJPTchR7a7iYam7mGNvwKTM5vlOQd6n3Z37IhN6zSNhW1TsJqMt/TwQk6G3gxmt0DC5/LfpxS9U38wOJ9RJN38uG4KGBR0wRNxrcHtn4dlPjpv4pCYzqEEffBfAG2XDC9sxyCUbbfH3wVDdbkS2P4FzQGRR4As8NdsEYXy01Y4xMa28C6KljT3gUDXNtYOn5fY3UwNtwEA9+XA397+zONxR03fQ1MerjG0Is4QYK5riLzEMDdC4+CuQoY99sKoW9R20z5zsKwN0gAczDFUohdPzSKRpw4j9Yp0+Jg2GgCrHBf3sAVuIytC8u4RjIwYmGOh8AMvTutfLtgydR8ZjzCgeV32M7eFlyZj2T8GY3lfHwNmChTGmcP5tECNNFBf4m4AqEGhGt8rYEj2i+AwUhwFCocgOs+ok383MFfMecdoGYUHFwkW76Jz5kiHlmQ4TtPY48+iNAnfqgX1a+vtNMueXyjvqox5WTkJFgthq3t0i2ydhY+4MsbYhKMtEu6dxFseqw1Gd+s2raasylPRgCluoJJgnnU3SYaHbS8Y4rJBv3h42AFdN1gGzwWZtgcMHD3Xk5BfYOz67qlsWKDnq3G1DP74DTCZVwQVbA1X57WpWWqk40od4svgInKBrtUPJSpfGPGyYYC6zma/OjJm0RzBcwcBONltAzKIVYxfyBObJlbFAHAtKSyOla4x+c1FiuhAxvOiDcpWBKo4GDbp3sLDA2CJR07EGCaUZYJwUys5OGgBhdYCRYFIWQQHKzrjU/AXCUdQ8C0e0+Y295XwbSsFhiS4qLUC9hePsZ2QqqVT4I3NvtgvrfbXQLxkwsYUoWsgI37uX4GbOXj231+J332DPHsXKb+cknCkC2gkZ1iLQE2RtRPgiVJq6mAadVtUKL5CAea69v9qGxxs/KTMLFrVaozYLLi7UcwrVxWY3XYtjfu32q07cOF/Ob7YKpWLm0Emewj+7m43Ud5EGzdAvjJKnz/jTbCg2B2OBIpXgBzZl9a/xFdhBChwYWXYIEYe1GYzn6fHlPIE3rJDhBBTPxIPHYng5bDObEXQqrEK34PTP+B/c/A/kzxD+wUWLB1AXVJd8cUm3Jkv1W/SpmGlsiVOUw32GxPbMVbZtA9WwneGjo+Xun/34s8hEGLqQ+AgUaVff0cDHCpJ7stSZvKTVW//vNPoXVuNV3rVQ7WVR+juRjRfLqtMeuzkWOtG2SxdtrnuehrSc9utyBpwjwB5sp23eqdI33Og5Wm6IZan3eXKz/wcc8UYdl87ZOsrUtDZmzz6xIwoU9nB2CHKw5FLGBWVkQXzrTsu4Fvw1K+JGRWmjoPiTjto6eqysMeF08NFA0chRVu8jNRyzpogXpF6rF9LuSw2MVzHtnphMxRNLgj6IasdpCBNef8B+CKj53zyI5tWOqdATsP0VP7GPoYJd1QDQuuagw2f30xj9URaFF6MM8pMPSxfa7w4FmqxtTb4YgjCOVPReQRanvgKa5TGuvQ7j9+rq5QD6aNMqRa/LffKb9JvQoR6Al9XCQyrCZCIL5eX5Z4+QEscJfekj/2D7KhSDEKe9jHAAAAAElFTkSuQmCC">
+                        </a>
+                    </div>
+                    <div class="channel-nav">
+                        <ul id="channel-ul"></ul>
+                    </div>
+                </div>>
+            </div>
             <div class="center">
                 <div class="content">
                     <ul id="content-list"></ul>
-                </div>
-            </div>
-            <div class="left">
-                <div class="logo">
-                    <a href="https://www.toutiao.com/" rel="noopener noreferrer">
-                        <img src="assets/images/logo.png">
-                    </a>
-                </div>
-                <div class="channel-nav">
-                    <ul id="channel-ul"></ul>
                 </div>
             </div>
             <div class="right">
@@ -97,8 +101,12 @@
                         <ul id="friend-links"></ul>
                     </div>
                 </div>
+                <div class="copyright">
+                    <div id="copyright-card">
+                    </div>
+                </div>
             </div>
-        </main>
+        </div>
     </div>
 </body>
 

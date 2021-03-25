@@ -1,31 +1,41 @@
-header {
-    width: 110%;
-    margin-left: -5%;
+#header {
     background-color: #222;
     height: 34px;
     line-height: 34px;
     color: #ffffff;
-    font-family: PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,Helvetica Neue,Arial,sans-serif;
     font-size: 14px;
 }
 
-header > div {
+#header > div:not(:last-child){
     float: left;
 }
 
-header div a {
+#header div a {
     color: #fff;
     cursor: pointer;
 }
 
-header::after {
-    content: "";
+#header::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#left-nav {
+    float: left;
+}
+
+#left-nav > div {
+    float: left;
+}
+
+#left-nav::after {
+    content: '';
     display: block;
     clear: both;
 }
 
 #header-download-app {
-    margin-left: 3.5vw;
     padding: 0 10px;
     border-right: 1px solid #3a3a3a;
 }
@@ -41,18 +51,19 @@ header::after {
 
 #header-weather span {
     margin-right: 8px;
+    color: #fff;
 }
 
 .header-weather-icon:before {
     content: "\e607";
+    clear: both;
 }
 
-.right-nav {
+#right-nav {
     float: right;
-    margin-right: 3.5vw;
 }
 
-.right-nav > div {
+#right-nav > div {
     float: left;
     padding: 0 10px;
 }

@@ -114,11 +114,11 @@
 }
 
 .qq {
-    background-image: url('../images/qq.svg'), none;
+    background-image: url('https://sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/svgs/icon_qq_pc.83d80076.svg'), none;
 }
 
 .wechat {
-    background-image: url('../images/wechat.svg'), none;
+    background-image: url('https://sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/svgs/icon_weixin_pc.7eab8c3d.svg'), none;
 }
 
 .more {
@@ -181,13 +181,44 @@
 #friend-links {
     overflow: hidden;
     margin: 20px -20px 0 0;
-}
-
-.more-link {  
-    float: left;
-    font-size: 14px;
     color: #777;
-    line-height: 1.4;
-    margin: 0 20px 20px 0;
 }
 
+
+#friend-links .item {
+    float: left;
+    margin: 0 20px 20px 0;
+    font-size: 14px;
+}
+
+#friend li a {
+    color: #777;
+}
+
+.copyright {
+    display: flex;
+    width: inherit;
+    border-top: 2px solid #ed4040;
+    background-color: #f4f5f6;
+    margin-bottom: 18px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 2;
+}
+
+#copyright-card {
+    margin: 8px 20px 0 20px;
+}
+
+#copyright-card a, p, span {
+    color: #777;
+}
+
+#copyright-card span {
+    display: block;
+}
+
+#copyright-card p img {
+    width: 20px;
+    height: 20px;
+}

@@ -41,4 +41,8 @@ for (let i = 0; i < channels.length; ++i)
 
 document.getElementById('channel-ul').innerHTML = str_channels;
 
-
+window.addEventListener('scroll', () => {
+    var scrollTop = document.body.scrollTop || document.documentElement.scrollTop || 0;
+    // console.log(scrollTop)
+    document.getElementById('left-container').setAttribute('class', (scrollTop >= 50) ? 'left left-fixed': 'left');
+});
