@@ -216,3 +216,76 @@
 .video-tip span {
     color: #fff;
 }
+
+.ugc {
+    height: 158px;
+}
+
+.ugc-user {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.ugc-user-avatar {
+    float: left;
+    width: 46px;
+    height: 46px;
+    margin-right: 8px;
+    border-radius: 50%;
+    overflow: hidden;
+    text-align: center;
+}
+
+.ugc-user-avatar img {
+    height: 100%;
+    width: 100%;
+}
+
+.ugc-user-name {
+    overflow: hidden;
+}
+
+.ugc-username {
+    display: block;
+    font-size: 18px;
+    line-height: 1;
+    color: #222;
+    margin: 3px 0 6px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.ugc-username span {
+    color: #222;
+}
+
+.ugc-username span:hover {
+    color: #406599;
+}
+
+.ugc-vtt::before {
+    content: '\e63e';
+}
+
+.ugc-meta {
+    line-height: 1;
+    font-size: 14px;
+    color: #777;
+}
+
+.ugc-content {
+    font-size: 14px;
+    color: #222;
+    line-height: 1.4;
+    display: -webkit-box;
+    max-height: 57px;
+    overflow: hidden;
+}
+
+.ugc-content a {
+    color: #222;
+}
+
+.ugc-content a:hover {
+    color: #406599;
+}
