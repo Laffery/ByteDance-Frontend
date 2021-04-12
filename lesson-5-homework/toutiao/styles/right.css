@@ -1,0 +1,224 @@
+.search-bar {
+    width: 100%;
+    display: flex;
+}
+
+.search-input {
+    flex: 1 1;
+    height: 44px;
+    font: 14px/1.14 PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,Helvetica Neue,Arial,sans-serif;
+    padding-left: 10px;
+    color: #1f2d3d;
+    background-color: #f5f6f7;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    outline: 0;
+    -webkit-transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+    -moz-transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+}
+
+.search-btn {
+    font: 14px/1.14 PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,Helvetica Neue,Arial,sans-serif;    
+    color: #fff;
+    background-color: #208eda;
+    border: 1px solid #208eda;
+    border-radius: 4px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    position: relative;
+    left: -1px;
+    padding: 13px 24px;
+}
+
+.login {
+    margin: 16px 0;
+    padding: 20px 20px 12px;
+    background-color: #f4f5f6;
+    font: 12px/1.14 PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,Helvetica Neue,Arial,sans-serif;
+}
+
+.login-card {
+    height: 198px;
+    padding: 20px 28px 15px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    font-size: 12px;
+    letter-spacing: 0;
+}
+
+.login-msg {
+    line-height: 17px;
+    color: #777;
+}
+
+.login-card a {
+    display: block;
+}
+
+.login-btn {
+    width: 240px;
+    height: 40px;
+    margin: 16px 0 14px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+    background: #ed4040;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.login-btn:hover {
+    opacity: .9;
+}
+
+.login-3rd {
+    display: block;
+    width: 242px;
+    height: 60px;
+    margin: auto;
+    text-align: center;
+}
+
+.login-3rd-party {
+    display: inline-block;
+    position: relative;
+    width: 36px;
+    height: 58px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: 100% 36px;
+    color: #777777;
+}
+
+.login-3rd-party:hover {
+    opacity: .8;
+}
+
+.login-3rd-party > span {
+    position: absolute;
+    left: 6px;
+    top: 41px;
+    width: 24px;
+    font-size: 12px;
+    line-height: 17px;
+    color: #777;
+}
+
+.login-3rd-party:not(:last-child) {
+    margin-right: 24px;
+}
+
+.qq {
+    background-image: url('https://sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/svgs/icon_qq_pc.83d80076.svg'), none;
+}
+
+.wechat {
+    background-image: url('https://sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/svgs/icon_weixin_pc.7eab8c3d.svg'), none;
+}
+
+.more {
+    display: flex;
+    width: inherit;
+    border-top: 2px solid #ed4040;
+    background-color: #f4f5f6;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.more-card {
+    width: 300px;
+    color: #222;
+    padding: 0;
+    margin: 20px 20px 0 18px;
+    font: 18px/1.14 PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,Helvetica Neue,Arial,sans-serif;
+}
+
+.more-header {
+    font-weight: 700;
+    text-align: left;
+}
+
+#more-links {
+    overflow: hidden;
+    margin: 20px -20px 0 0;
+}
+
+.more-link {  
+    float: left;
+    font-size: 14px;
+    color: #777;
+    line-height: 1.4;
+    margin: 0 20px 20px 0;
+}
+
+.friend-links {
+    display: flex;
+    width: inherit;
+    border-top: 2px solid #ed4040;
+    background-color: #f4f5f6;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.friend-links-card {
+    width: 300px;
+    color: #222;
+    padding: 0;
+    margin: 20px 20px 0 18px;
+    font: 18px/1.14 PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,Helvetica Neue,Arial,sans-serif;
+}
+
+.friend-links-header {
+    font-weight: 700;
+    text-align: left;
+}
+
+#friend-links {
+    overflow: hidden;
+    margin: 20px -20px 0 0;
+    color: #777;
+}
+
+
+#friend-links .item {
+    float: left;
+    margin: 0 20px 20px 0;
+    font-size: 14px;
+}
+
+#friend li a {
+    color: #777;
+}
+
+.copyright {
+    display: flex;
+    width: inherit;
+    border-top: 2px solid #ed4040;
+    background-color: #f4f5f6;
+    margin-bottom: 18px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 2;
+}
+
+#copyright-card {
+    margin: 8px 20px 0 20px;
+}
+
+#copyright-card a, p, span {
+    color: #777;
+}
+
+#copyright-card span {
+    display: block;
+}
+
+#copyright-card p img {
+    width: 20px;
+    height: 20px;
+}

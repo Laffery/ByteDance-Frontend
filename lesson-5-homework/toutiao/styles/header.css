@@ -1,0 +1,73 @@
+#header {
+    background-color: #222;
+    height: 34px;
+    line-height: 34px;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+#header > div:not(:last-child){
+    float: left;
+}
+
+#header div a {
+    color: #fff;
+    cursor: pointer;
+}
+
+#header::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#left-nav {
+    float: left;
+}
+
+#left-nav > div {
+    float: left;
+}
+
+#left-nav::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#header-download-app {
+    padding: 0 10px;
+    border-right: 1px solid #3a3a3a;
+}
+
+#header-sign-up {
+    padding: 0 10px;
+}
+
+#header-weather {
+    padding-left: 7px;
+    cursor: pointer;
+}
+
+#header-weather span {
+    margin-right: 8px;
+    color: #fff;
+}
+
+.header-weather-icon:before {
+    content: "\e607";
+    clear: both;
+}
+
+#right-nav {
+    float: right;
+}
+
+#right-nav > div {
+    float: left;
+    padding: 0 10px;
+}
+
+#complaint {
+    border-right: 1px solid #3a3a3a;
+}

@@ -1,0 +1,41 @@
+.logo {
+    width: 108px;
+    height: 28px;
+    margin-bottom: 16px;
+}
+
+.logo img {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+}
+
+.channel-nav {
+    display: block;
+    width: 110px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.channel-item {
+    display: block;
+    width: 110px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    /* margin-left: -40px; */
+    margin-bottom: 2px;
+    color: #444444;
+}
+
+.active {
+    background-color: #ed4040;
+    color: #fff;
+}
+
+.channel-item:hover {
+    background-color: #ed4040;
+    color: #fff;
+}
+
