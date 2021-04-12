@@ -3,6 +3,10 @@
 🙋
 
 - intro to fe
-- html/css
-- js
-- react
+- HTML/CSS
+- JavaScript
+- React
+- Next.js
+- Mobile-end
+
+**Expectation for ByteDance 's Offer**/(ㄒoㄒ)/~~
