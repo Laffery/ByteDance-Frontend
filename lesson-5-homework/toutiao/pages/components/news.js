@@ -2,10 +2,11 @@ import items from './item';
 import { useState, useEffect } from 'react';
 
 var protocol = 'http';
-var ip = 'localhost';
-// var ip = '175.24.127.98'; // my tencent cloud server's public ip
+// var ip = 'localhost';
+var ip = '175.24.127.98'; // my tencent cloud server's public ip
 var port = '2021';
 var route = '/home';
+// var route = '/hello'
 
 function url(pr, i, p) {
     return pr + '://' + i + ':' + p
@@ -222,26 +223,34 @@ function News() {
     var [flag, setFlag] = useState(true);
     var [data, setData] = useState({
         array: []
-    });
+    });// 由于useState好像没有数组的初始化，所以采用这种方式防止后面的map报错
+
+    /*
+     * 刷新页面时清楚本地缓存数据
+     * 并作第一次、二次的数据请求
+     */
+    useEffect(() => {
+        localStorage.removeItem('data');
+        pull();
+        route = '/more'
+        var t = setTimeout(() => pull(), 2000);
+        return () => {
+            clearTimeout(t)
+        }
+    }, [])
 
     function pull() {
-        console.log('pull')
         fetch(url(protocol, ip, port) + route).then((response) => {
-            route = '/more'
             response.json().then((res) => {
-                console.log(res.data)
-                var tmp = data.array
-                setData({ array: [...tmp, ...res.data] })
-                console.log(data.array)
+                var tmp = JSON.parse(localStorage.getItem('data'))
+                if (!tmp) tmp = []
+                localStorage.setItem('data', JSON.stringify([...tmp, ...res.data]))
+                setData({ array: JSON.parse(localStorage.getItem('data')) })
             })
         }).catch((e) => {
             console.log(e)
         })
     }
-
-    useEffect(() => {
-        pull();
-    }, [])
 
     useEffect(() => {
         /*
@@ -261,7 +270,7 @@ function News() {
                 setFlag(false);
                 pull();
                 setTimeout(() => {
-                    console.log('hello world')
+                    // console.log('hello world')
                     setFlag(true)
                 }, 1000);
             }

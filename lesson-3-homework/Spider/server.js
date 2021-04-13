@@ -21,7 +21,7 @@ function start() {
         
         if (pathname === '/home') {
             first();
-        res.writeHead(200, {"Content-Type": "text/json", "Access-Control-Allow-Origin": '*'});
+            res.writeHead(200, {"Content-Type": "text/json", "Access-Control-Allow-Origin": '*'});
             res.end(fs.readFileSync('res.json'));
         }
         else if (pathname === '/more') {
@@ -32,6 +32,10 @@ function start() {
         else if (pathname === '/') {
             res.writeHead(200, {'Content-Type': 'text/plain'});
             res.end('Hello world');
+        }
+        else if (pathname === '/hello') {
+            res.writeHead(200, {"Content-Type": "text/json", "Access-Control-Allow-Origin": '*'});
+            res.end(fs.readFileSync('res.json'));
         }
         else {
             res.writeHead(400, {'Content-Type': 'text/plain'});
