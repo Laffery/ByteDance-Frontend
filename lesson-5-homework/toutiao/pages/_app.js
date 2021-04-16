@@ -7,10 +7,10 @@ import '../styles/center.css';
 import '../styles/right.css';
 
 // components
-import Header from './components/header';
-import LeftNav from './components/left-nav';
-import News from './components/news';
-import RightNav from './components/right-nav';
+import Header from '../components/header';
+import LeftNav from '../components/left-nav';
+import News from '../components/news';
+import RightNav from '../components/right-nav';
 
 function MyApp({ Component, pageProps }) {
 	return (
