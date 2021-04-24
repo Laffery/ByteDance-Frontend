@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci</title>
+</head>
+<body>
+    <div id="root">
+        <button id="btn">calculate</button>
+        <input id="input" />
+        <span id="result"></span>
+        <span id="timer"></span>
+    </div>
+</body>
+
+<script>
+btn = document.getElementById('btn');
+input = document.getElementById('input');
+result = document.getElementById('result');
+timer = document.getElementById('timer');
+
+function fibonacci(n) {
+    if (n <= 2) return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+// **************************** BLOCK ***********************************
+// btn.addEventListener('click', () => {
+//     var n = input.value;
+//     result.innerText = resText;
+//     start = new Date();
+//     result.innerText = fibonacci(n);
+//     timer.innerText = (new Date - start) + ('ms');
+// });
+
+function* fibonacci2(n) {
+    if (n <= 0) return undefined;
+    if (n <= 2) return 1;
+
+    var prev = 1;
+    var curr = 1;
+    for (let i = 3; i <= n; ++i) {
+        var tmp = curr; 
+        curr += prev;
+        prev = tmp;
+        yield curr;
+    }
+
+    return curr;
+}
+
+function* fibonacci3(n) {
+    if (n <= 0) return undefined;
+    if (n <= 2) return 1;
+
+    var prev = 1;
+    var curr = 1;
+    for (let i = 3; i <= n; ++i) {
+        var tmp = curr; 
+        curr += prev;
+        prev = tmp;
+        i++;
+        if (i <= n) {
+            tmp = curr; 
+            curr += prev;
+            prev = tmp;
+        }
+        yield curr;
+    }
+
+    return curr;
+}
+
+var gen;
+var start;
+var resText = 'waiting...';
+var flag = false;
+
+
+// **************************** NON-BLOCK ***********************************
+btn.addEventListener('click', () => {
+    start = new Date();
+    gen = fibonacci2(input.value);
+    // gen = fibonacci3(n);
+    window.requestAnimationFrame(function step() {
+        let val = gen.next().value;
+        if (val) {
+            flag = true;
+            resText = val;
+            window.requestAnimationFrame(step);
+        }
+        else {
+            if (!flag) resText = undefined;
+            flag = false;
+            result.innerText = resText;
+            timer.innerText = resText ? (new Date - start) + ('ms') : '';
+        }
+    });
+});
+
+</script>
+</html>
