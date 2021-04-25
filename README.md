@@ -2,11 +2,14 @@
 
 🙋
 
-- intro to fe
+- intro 2 fe
 - HTML/CSS
 - JavaScript
 - React
 - Next.js
-- Mobile-end
+- Mobile-end / Flexible Layout
+- Performance Opt
+- fe Summery
+- Final Project
 
 **Expectation for ByteDance 's Offer**/(ㄒoㄒ)/~~
