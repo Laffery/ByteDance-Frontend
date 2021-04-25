@@ -5,6 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fibonacci</title>
+    <style>
+        #cache {
+            margin-top: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #cache > div {
+            width: 200px;
+            text-align: center;
+        }
+
+        #cache div img {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <div id="root">
@@ -12,6 +29,21 @@
         <input id="input" />
         <span id="result"></span>
         <span id="timer"></span>
+
+        <div id="cache">
+            <div>
+                <img id="max-age" alt="max-age" src="http://localhost:3000/0?max-age=10"/>
+                <span>max-age=10</span>
+            </div>
+            <div>
+                <img id="no-store" alt="no-store" src="http://localhost:3000/1?no-store"/>
+                <span>no-store</span>
+            </div>
+            <div>
+                <img id="no-cache" alt="no-cache" src="http://localhost:3000/2?no-cache"/>
+                <span>no-cache</span>
+            </div>
+        </div>
     </div>
 </body>
 

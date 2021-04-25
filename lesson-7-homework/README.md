@@ -92,6 +92,61 @@
 
 ## Static Server
 
-cache=max-age | no-cache | no-store，来控制返回的文件的 cache-control
+这里对max-age，no-store，no-cache的理解可以参考[知乎文章](https://zhuanlan.zhihu.com/p/55623075)
 
-首先搭建起来一个简单的Node.js 的 [server](./sserver.js)，运行在`3000` 端口，默认返回index.html
+首先搭建起来一个简单的Node.js 的 [server](./sserver.js)，运行在`3000` 端口，默认返回index.html，该页面在前面fibonacci的基础上加上了三张图片，分别使用的`Cache-Control`的策略为`max-age=10`，`no-store`，`no-cache`
+(这里不同策略的传值方式为，在url后的参数传值)
+
+```js
+fs.stat(urlPath, (err, stat) => {
+    ...// if err
+    var mtime = stat.mtimeMs.toString()
+    // 用文件的last modified time 作为 etag
+    if (etag === mtime) {
+        res.writeHead(304, {
+            'Cache-Control': query,
+            'Etag': mtime
+            })
+        return res.end('')
+    } else {
+        res.writeHead(200, {
+            'Cache-Control': query, 
+            'Etag': mtime
+        })
+    }
+    ...            
+})
+```
+
+我们运行server，在`Edge`浏览器打开`隐私窗口`，先取消勾选`Disable Cache`，然后访问`http://localhost:3000`.
+可以在**NetWork**下的**Img**里看到有三个请求，可以看到如下内容
+
+| Name         | Status | Size   |
+| ------------ | ------ | ------ |
+| 0?max-age=10 | 200    | 33.3KB |
+| 1?no-store   | 200    | 33.3KB |
+| 2?no-cache   | 200    | 33.3KB |
+
+我们在**10秒内刷新网页**，上述内容变为
+
+| Name         | Status | Size       |
+| ------------ | ------ | ---------- |
+| 0?max-age=10 | 200    | (内存缓存) |
+| 1?no-store   | 200    | 33.3KB     |
+| 2?no-cache   | 304    | 159B       |
+
+可以看到
+
+- 图1从浏览器内存的cache中取出，因为时间还未到达max-age，缓存未失效，并未向服务器请求
+- 图2由于是no-store，再次向服务器请求资源，由于没有保存etag，服务器视其为第一次请求，因此状态与之前一致
+- 图3是no-cache，相当于max-age=0，缓存是失效的，于是向服务器请求，请求头中带有etag，服务器核验对应的文件没有被修改过，返回状态码304，并告诉客户端文件未修改，可以继续用缓存的文件数据，所以不再发送文件，实际返回的大小只有159B
+
+在第一次访问**10秒后刷新网页**，上述内容变为
+
+| Name         | Status | Size   |
+| ------------ | ------ | ------ |
+| 0?max-age=10 | 304    | 161B   |
+| 1?no-store   | 200    | 33.3KB |
+| 2?no-cache   | 304    | 159B   |
+
+图1和图3均属于缓存失效的，解析参见上述图3
