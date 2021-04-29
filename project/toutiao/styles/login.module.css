@@ -1,0 +1,84 @@
+.login {
+    margin: 16px 0;
+    padding: 20px 20px 12px;
+    background-color: #f4f5f6;
+    font: 12px/1.14 PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,Helvetica Neue,Arial,sans-serif;
+}
+
+.login_card {
+    height: 198px;
+    padding: 20px 28px 15px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    font-size: 12px;
+    letter-spacing: 0;
+}
+
+.login_msg {
+    line-height: 17px;
+    color: #777;
+}
+
+.login_card a {
+    display: block;
+}
+
+.login_btn {
+    width: 240px;
+    height: 40px;
+    margin: 16px 0 14px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+    background: #ed4040;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.login_btn:hover {
+    opacity: .9;
+}
+
+.login_3rd {
+    display: block;
+    width: 242px;
+    height: 60px;
+    margin: auto;
+    text-align: center;
+}
+
+.login_3rd_party {
+    display: inline-block;
+    position: relative;
+    width: 36px;
+    height: 58px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: 100% 36px;
+    color: #777777;
+}
+
+.login_3rd_party:hover {
+    opacity: .8;
+}
+
+.login_3rd_party > span {
+    position: absolute;
+    left: 6px;
+    top: 41px;
+    width: 24px;
+    font-size: 12px;
+    line-height: 17px;
+    color: #777;
+}
+
+.login_3rd_party:nth-child(1) {
+    margin-right: 24px;
+    background-image: url('https://sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/svgs/icon_qq_pc.83d80076.svg'), none;
+}
+
+.login_3rd_party:nth-child(2) {
+    background-image: url('https://sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/svgs/icon_weixin_pc.7eab8c3d.svg'), none;
+}

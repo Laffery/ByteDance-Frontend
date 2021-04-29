@@ -1,0 +1,19 @@
+#main {
+    width: 1170px;
+    margin: 16px auto 0;
+}
+
+#main::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#main > div {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    line-height: 10vh;
+    font-size: 3vw;
+}
+

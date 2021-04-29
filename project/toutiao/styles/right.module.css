@@ -1,0 +1,114 @@
+.right {
+    float: right;
+    width: 340px;
+    height: 100vh;
+}
+
+.more {
+    display: flex;
+    width: inherit;
+    border-top: 2px solid #ed4040;
+    background-color: #f4f5f6;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.more_card {
+    width: 300px;
+    color: #222;
+    padding: 0;
+    margin: 20px 20px 0 18px;
+    font: 18px/1.14 PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,Helvetica Neue,Arial,sans-serif;
+}
+
+.more_header {
+    font-weight: 700;
+    text-align: left;
+}
+
+#more_links {
+    overflow: hidden;
+    margin: 20px -20px 0 0;
+}
+
+.more_link {  
+    float: left;
+    font-size: 14px;
+    color: #777;
+    line-height: 1.4;
+    margin: 0 20px 20px 0;
+}
+
+.friend_links {
+    display: flex;
+    width: inherit;
+    border-top: 2px solid #ed4040;
+    background-color: #f4f5f6;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.friend_links_card {
+    width: 300px;
+    color: #222;
+    padding: 0;
+    margin: 20px 20px 0 18px;
+    font: 18px/1.14 PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,Helvetica Neue,Arial,sans-serif;
+}
+
+.friend_links_header {
+    font-weight: 700;
+    text-align: left;
+}
+
+#friend_links {
+    overflow: hidden;
+    margin: 20px -20px 0 0;
+    color: #777;
+}
+
+
+#friend_links .item {
+    float: left;
+    margin: 0 20px 20px 0;
+    font-size: 14px;
+}
+
+#friend li a {
+    color: #777;
+}
+
+.copyright {
+    display: flex;
+    width: inherit;
+    border-top: 2px solid #ed4040;
+    background-color: #f4f5f6;
+    margin-bottom: 18px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 2;
+}
+
+#copyright_card {
+    margin: 8px 20px 0 20px;
+}
+
+#copyright_card a {
+    color: #777;
+}
+#copyright_card p {
+    color: #777;
+}
+
+#copyright_card span {
+    color: #777;
+}
+
+#copyright_card span {
+    display: block;
+}
+
+#copyright_card p img {
+    width: 20px;
+    height: 20px;
+}

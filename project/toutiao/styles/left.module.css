@@ -1,0 +1,60 @@
+.left {
+    width: 110px;
+    height: 600px;
+    margin-right: 30px;
+    vertical-align: top;
+}
+
+.left_fixed {
+    position: fixed!important;
+    top: 10px;
+    z-index: 30;
+}
+
+.logo {
+    width: 108px;
+    height: 28px;
+    margin-bottom: 16px;
+}
+
+.logo img {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+}
+
+.channel_nav {
+    display: block;
+    width: 110px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.channel_item {
+    display: block;
+    width: 110px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 2px;
+    color: #444444;
+}
+
+.channel_item_active {
+    display: block;
+    width: 110px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 2px;
+    background-color: #ed4040;
+    color: #fff;
+}
+
+.channel_item:hover {
+    background-color: #ed4040;
+    color: #fff;
+}
+
