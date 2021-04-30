@@ -1,0 +1,43 @@
+.container {
+    background: #222;
+    height: 34px;
+    line-height: 34px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    
+}
+
+.channels {
+    padding: 0 20px;
+}
+
+.item {
+    font-size: 13px;
+    margin-right: 20px;
+    width: 26px;
+    white-space: nowrap;
+    float: left;
+}
+
+.more_icon::before {
+    content: '\e607';
+}
+
+.right_nav {
+    float: right;
+    font-size: 14px;
+}
+
+.right_nav > div {
+    float: left;
+    border-left: 1px solid #3a3a3a;
+    width: 76px;
+    text-align: center;
+}
+
+#login {
+    background: #ed4040;
+    width: 68px!important;
+    z-index: 10;
+}

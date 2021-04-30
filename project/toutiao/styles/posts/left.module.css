@@ -1,0 +1,103 @@
+.tools_wrapper {
+    float: left;
+    margin-top: 20px;
+    margin-right: 30px;
+    width: 110px;
+}
+
+.tools_wrapper hr {
+    border: none;
+    height: .1px;
+    background: #e8e8e8;
+}
+
+.left_fixed {
+    position: fixed!important;
+    top: 20px;
+    z-index: 30;
+}
+
+.comment_count {
+    color: #f85959;
+    margin-bottom: 14px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.comment_count span {
+    padding-left: 8px;
+    font-size: 20px;
+    font-family: Georgia;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.comment_count_icon {
+    vertical-align: middle;
+    font-size: 30px;
+}
+
+.comment_count_icon::before {
+    content: '\e649';
+}
+
+.share_tools li {
+    margin-top: 14px;
+    height: 34px;
+}
+
+.article_repost {
+    font-size: 16px;
+    color: #657180;
+    cursor: pointer;
+}
+
+.article_repost i {
+    float: left;
+}
+
+.article_repost img {
+    float: left;
+}
+
+.article_repost span {
+    line-height: 34px;
+    padding-left: 12px;
+}
+
+.article_repost::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.repost_img {
+    width: 34px;
+}
+
+.icon_sina {
+    font-size: 34px;
+    color: #ff6631
+}
+
+.icon_sina::before {
+    content: '\e6d5';
+}
+
+.icon_qzone {
+    font-size: 34px;
+    color: #ffbd1d;
+}
+
+.icon_qzone::before {
+    content: '\e6d3';
+}
+
+.icon_weixin {
+    font-size: 34px;
+    color: #52cd3e;
+}
+
+.icon_weixin::before {
+    content: '\e6d7';
+}

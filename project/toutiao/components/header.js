@@ -17,7 +17,7 @@ function Header() {
                 <span>&nbsp;北京</span>
                 <span>浮尘</span>
                 <span><em>4</em>℃ &nbsp; / &nbsp; <em>12</em>℃</span>
-                <i className={styles.header_weather_icon}></i>
+                <i className={'btn_icon ' + styles.header_weather_icon}></i>
             </div>
         </div>
         <div id={styles.right_nav}>

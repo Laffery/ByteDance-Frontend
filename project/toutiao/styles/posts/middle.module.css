@@ -1,0 +1,42 @@
+.container {
+    width: 100%;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 12%);
+}
+
+.inner_wrapper {
+    height: 58px;
+    margin: 0 auto;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1200px;
+}
+
+.left {
+    line-height: 58px;
+}
+
+.logo {
+    float: left;
+}
+
+.logo img {
+    width: 108px;
+    height: 27px;
+    vertical-align: middle
+}
+
+.tag {
+    font-size: 16px;
+    margin-left: 20px;
+    float: left;
+}
+
+.text {
+    color: #999;
+}
+
+.search_bar {
+    width: 340px;
+}

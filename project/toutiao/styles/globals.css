@@ -50,3 +50,36 @@ body {
   max-width: 100vw;
 	min-height: 100vh;
 }
+
+@font-face {
+  font-family: ttIcons;
+  src: url(//sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/fonts/iconfont.4403eb94.woff) format("woff"),url(//sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/fonts/iconfont.c382b016.ttf) format("truetype")
+}
+
+@font-face {
+  font-family: ByteNumber-center;
+  src: url(//sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/fonts/Byte_Number-center.688369de.ttf) format("truetype");
+  font-style: normal;
+  font-display: swap
+}
+
+@font-face {
+  font-family: ByteNumber-Medium;
+  src: url(//sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/fonts/ByteNumber-Medium.47b9dea4.ttf) format("truetype");
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500
+}
+
+.btn_icon {
+    font-family: ttIcons!important;
+    font-size: 12px;
+    display: inline-block;
+    line-height: 1;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+}
