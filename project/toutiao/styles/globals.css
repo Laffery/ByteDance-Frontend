@@ -21,7 +21,7 @@ html {
 }
 
 body {
-  overflow-x: hidden;
+  min-width: 1220px;
 }
 
 a {

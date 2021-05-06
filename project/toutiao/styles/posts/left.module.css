@@ -5,6 +5,12 @@
     width: 110px;
 }
 
+@media screen and (max-width: 1200px) {
+    .tools_wrapper {
+        visibility: hidden;
+    }
+}
+
 .tools_wrapper hr {
     border: none;
     height: .1px;
