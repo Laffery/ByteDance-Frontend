@@ -1,18 +1,15 @@
-import styles from '../styles/center.module.css'
-import { useState, useEffect } from 'react';
+import styles from '../styles/feed.module.css'
 
-var protocol = 'http';
-// var ip = 'localhost';
-var ip = '175.24.127.98'; // my tencent cloud server's public ip
-var port = '2021';
-var route = '/home';
-// var route = '/hello'
+import Link from 'next/link'
+import { useState, useEffect } from 'react'
+import { Protocol, IP, Port, Route, Site, URL } from '../config'
 
-function url(pr, i, p) {
-    return pr + '://' + i + ':' + p
-}
+var protocol = Protocol
+var ip = IP
+var port = Port
+var route = Route
 
-var no_dislike_count = 2;
+var no_dislike_count = 2
 
 function video_tip(item) {
     return (item.video_duration_str === undefined) ? '' : (
@@ -37,83 +34,78 @@ function tag(t) {
 
 function aggregate(number) {
     if (number === undefined)
-        return 0;
+        return 0
     if (number >= 1e4)
-        return Math.floor(number / 1e4) + '万';
-    return number;
+        return Math.floor(number / 1e4) + '万'
+    return number
 }
 
 function count_tag(num, tag) {
-    return aggregate(num) + tag;
+    return aggregate(num) + tag
 }
 
-function no_mode(item, index) {
+function no_mode(item) {
     return (
-    <li key={index}>
         <div className={styles.content_card}>
             <div className={styles.content_text_card}>
                 <div className={styles.title}>
-                    <a href={'https://toutiao.com' + item.source_url} target='_blank' rel='noopener noreferrer'>{ item.title }</a>
+                    <Link href='/post'><a>{ item.title }</a></Link>
+                    {/* <a href={Site + item.source_url} target='_blank' rel='noopener noreferrer'>{ item.title }</a> */}
                 </div>
                 <div className={styles.content_foot}>
                     <a className={styles.tag}>{tag(item)}</a>
-                    <a className={styles.avatar} href={'https://toutiao.com' + item.media_url} target='_blank' rel='noopener noreferrer'>
+                    <a className={styles.avatar} href={Site + item.media_url} target='_blank' rel='noopener noreferrer'>
                         <img src={'https:' + item.media_avatar_url}/>
                     </a>
                     <a>&nbsp;{item.source}&nbsp;·</a>
-                    <a href={'https://toutiao.com' + item.source_url + '//#comment-area'} target='_blank' rel='noopener noreferrer'>
+                    <a href={Site + item.source_url + '//#comment-area'} target='_blank' rel='noopener noreferrer'>
                         &nbsp;{ count_tag(item.comments_count, '评论') }&nbsp;·</a>
                     <span>&nbsp;{ _(item.behot_time) }</span>
                     { dislike() }
                 </div>
             </div>
         </div>
-    </li>
     )
 }
 
-function single_mode(item, index) {
+function single_mode(item) {
     return (
-    <li key={index}>
         <div className={styles.content_card}>
             <div className={styles.content_image}>
-                <a href={'https://toutiao.com' + item.source_url} target='_blank' rel='noopener noreferrer'>
+                <a href={Site + item.source_url} target='_blank' rel='noopener noreferrer'>
                     <img src={'https://' + item.image_url}/>
                     { video_tip(item) }
                 </a>
             </div>
             <div className={styles.content_text_card_with_image}>
                 <div className={styles.title}>
-                    <a href={'https://toutiao.com' + item.source_url} target='_blank' rel='noopener noreferrer'> 
-                        {item.title}
-                    </a>
+                    <Link href='/post'><a>{ item.title }</a></Link>
+                    {/* <a href={Site + item.source_url} target='_blank' rel='noopener noreferrer'>{ item.title }</a> */}
                 </div>
                 <div className={styles.content_foot}>
                     <a className={styles.tag}>{tag(item)}</a>
-                    <a className={styles.avatar} href={'https://toutiao.com' + item.media_url} target='_blank' rel='noopener noreferrer'>
+                    <a className={styles.avatar} href={Site + item.media_url} target='_blank' rel='noopener noreferrer'>
                         <img src={'https:' + item.media_avatar_url}/>
                     </a>
                     <a>&nbsp;{item.source}&nbsp;·</a>
-                    <a href={'https://toutiao.com' + item.source_url + '//#comment-area'} target='_blank' rel='noopener noreferrer'>
+                    <a href={Site + item.source_url + '//#comment-area'} target='_blank' rel='noopener noreferrer'>
                         &nbsp;{ count_tag(item.comments_count, '评论') }&nbsp;·</a>
                     <span>&nbsp;{ _(item.behot_time) }</span>
                     { dislike() }
                 </div>
             </div>
         </div>
-    </li>
     )
 }
 
-function ugc_mode(item, index) {
-    var len = item.ugc_data.ugc_images.length;
+function ugc_mode(item) {
+    var len = item.ugc_data.ugc_images.length
 
     return (
-    <li key={index}>
         <div className={styles.content_card}>
             { len ? (
             <div className={styles.content_image_ugc}>
-                <a href={'https://toutiao.com' + item.source_url} target='_blank' rel='noopener noreferrer'>
+                <a href={Site + item.source_url} target='_blank' rel='noopener noreferrer'>
                     <img src={'https://' + item.ugc_data.ugc_images[0]} />
                     { len > 1 ? (<i className='video-tip'><span> {len} 图</span></i>) : '' }
                 </a>
@@ -121,8 +113,8 @@ function ugc_mode(item, index) {
             ) : ''}
             <div className={len ? styles.content_text_card_with_image : styles.content_text_card}>
                 <div className={styles.ugc_user}>
-                    <div className='ugc-user-avatar'>
-                        <a href={'https://toutiao.com' + item.ugc_data.ugc_user.open_url} target='_blank' rel='noopener noreferrer'>
+                    <div className={styles.ugc_user_avatar}>
+                        <a href={Site + item.ugc_data.ugc_user.open_url} target='_blank' rel='noopener noreferrer'>
                             <img src={ item.ugc_data.ugc_user.avatar_url } />
                         </a>
                     </div>
@@ -134,46 +126,43 @@ function ugc_mode(item, index) {
                     </div>
                 </div>
                 <div className={styles.ugc_content}>
-                    <a href={'https://toutiao.com/group/' + item.group_id } target='_blank' rel='noopener noreferrer'>
+                    <a href={Site + '/group/' + item.group_id } target='_blank' rel='noopener noreferrer'>
                         { item.title }
                     </a>
                 </div>
                 <div className={styles.content_foot}>
-                    <a href={'https://toutiao.com' + item.source_url + '//#comment-area'} target='_blank' rel='noopener noreferrer'>&nbsp;{ count_tag(item.ugc_data.digg_count, '赞') }&nbsp;·</a>
-                    <a href={'https://toutiao.com' + item.source_url + '//#comment-area'} target='_blank' rel='noopener noreferrer'>&nbsp;{ count_tag(item.ugc_data.comment_count, '评论') }&nbsp;·</a>
-                    <a href={'https://toutiao.com' + item.source_url + '//#comment-area'} target='_blank' rel='noopener noreferrer'>&nbsp;{ count_tag(item.ugc_data.display_count, '展现') }&nbsp;·</a>
+                    <a href={Site + item.source_url + '//#comment-area'} target='_blank' rel='noopener noreferrer'>&nbsp;{ count_tag(item.ugc_data.digg_count, '赞') }&nbsp;·</a>
+                    <a href={Site + item.source_url + '//#comment-area'} target='_blank' rel='noopener noreferrer'>&nbsp;{ count_tag(item.ugc_data.comment_count, '评论') }&nbsp;·</a>
+                    <a href={Site + item.source_url + '//#comment-area'} target='_blank' rel='noopener noreferrer'>&nbsp;{ count_tag(item.ugc_data.display_count, '展现') }&nbsp;·</a>
                     <span>&nbsp;{ _(item.behot_time) }</span>
                     { dislike() }
                 </div>
             </div>
         </div>
-    </li>
     )
 }
 
-function gallery_mode(item, index) {
+function gallery_mode(item) {
     return (
-    <li key={index}>
         <div className={styles.content_card}>
             <div className={styles.content_image}>
-                <a href={'https://toutiao.com' + item.source_url} target='_blank' rel='noopener noreferrer'>
+                <a href={Site + item.source_url} target='_blank' rel='noopener noreferrer'>
                     <img src={'https://' + item.image_url} />
                     { video_tip(item) }
                 </a>
             </div>
             <div className={styles.content_text_card_with_image}>
                 <div className={styles.title}>
-                    <a href={'https://toutiao.com' + item.source_url} target='_blank' rel='noopener noreferrer'>
-                        { item.title }
-                    </a>
+                    <Link href='/post'><a>{ item.title }</a></Link>
+                    {/* <a href={Site + item.source_url} target='_blank' rel='noopener noreferrer'>{ item.title }</a> */}
                 </div>
                 <div className={styles.content_foot}>
                     <a className={styles.tag}> { tag(item) } </a>
-                    <a className={styles.avatar} href={'https://toutiao.com' + item.media_url} target='_blank' rel='noopener noreferrer'>
+                    <a className={styles.avatar} href={Site + item.media_url} target='_blank' rel='noopener noreferrer'>
                         <img src={'https:' + item.media_avatar_url} />
                     </a>
                     <a>&nbsp;{ item.source }&nbsp;·</a>
-                    <a href={'https://toutiao.com' + item.source_url + '//#comment-area' } target='_blank' rel='noopener noreferrer'>
+                    <a href={Site + item.source_url + '//#comment-area' } target='_blank' rel='noopener noreferrer'>
                         &nbsp;{ count_tag(item.comments_count, '评论') }&nbsp;·
                     </a>
                     <span>&nbsp;{ _(item.behot_time) }</span>
@@ -181,49 +170,48 @@ function gallery_mode(item, index) {
                 </div>
             </div>
         </div>
-    </li>
     )
 }
 
 function _() {
     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 0;
     if (!e)
-        return "";
+        return ''
     var t = 1e3 * 60;
-    var a = (new Date()).getTime() - 1e3 * e;
-    var r = Math.floor(a / t);
+    var a = (new Date()).getTime() - 1e3 * e
+    var r = Math.floor(a / t)
     if (r < 1)
-        return "\u521a\u521a";
+        return '\u521a\u521a'
     if (r < 60)
-        return "".concat(r, "\u5206\u949f\u524d");
+        return ''.concat(r, '\u5206\u949f\u524d')
     else if (r < 60 * 24)
-        return "".concat(Math.floor(r / 60), "\u5c0f\u65f6\u524d");
+        return ''.concat(Math.floor(r / 60), '\u5c0f\u65f6\u524d')
     else if (r < 60 * 24 * 30)
-        return "".concat(Math.floor(r / 1440), "\u5929\u524d");
+        return ''.concat(Math.floor(r / 1440), '\u5929\u524d')
     else if (r < 60 * 24 * 30 * 12)
-        return "".concat(Math.floor(r / 43200), "\u6708\u524d");
+        return ''.concat(Math.floor(r / 43200), '\u6708\u524d')
     var d = new Date(e);
-    return d.getFullYear() + '\u5e74' + (d.getMonth() + 1) + '\u6708' + d.getDate() + '\u65e5';
+    return d.getFullYear() + '\u5e74' + (d.getMonth() + 1) + '\u6708' + d.getDate() + '\u65e5'
 }
 
-function FeedBack(item, index) {
+function FeedBack(item) {
     if (item.article_genre === 'ugc')
         return
     if (item.ugc_data !== undefined)
-        return ugc_mode(item, index)
+        return ugc_mode(item)
     else if (item.single_mode)
-        return single_mode(item, index)
+        return single_mode(item)
     else if (item.has_gallery)
-        return gallery_mode(item, index)
+        return gallery_mode(item)
     else
-        return no_mode(item, index)
+        return no_mode(item)
 }
 
-function News() {
+function Feed() {
     var [flag, setFlag] = useState(true);
     var [data, setData] = useState({
         array: []
-    });// 由于useState好像没有数组的初始化，所以采用这种方式防止后面的map报错
+    }) // 由于useState好像没有数组的初始化，所以采用这种方式防止后面的map报错
 
     /*
      * 刷新页面时清楚本地缓存数据
@@ -231,7 +219,7 @@ function News() {
      */
     useEffect(() => {
         localStorage.removeItem('data');
-        pull();
+        pull()
         route = '/more'
         var t = setTimeout(() => pull(), 2000);
         return () => {
@@ -240,7 +228,7 @@ function News() {
     }, [])
 
     function pull() {
-        // fetch(url(protocol, ip, port) + route).then((response) => {
+        // fetch(URL(protocol, ip, port) + route).then((response) => {
         //     response.json().then((res) => {
         //         var tmp = JSON.parse(localStorage.getItem('data'))
         //         if (!tmp) tmp = []
@@ -272,9 +260,9 @@ function News() {
             if (flag === false) 
                 return
                 
-            var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-            var scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight || 0;
-            var clientHeight = document.documentElement.clientHeight || document.body.clientHeight || 0;
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+            var scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight || 0
+            var clientHeight = document.documentElement.clientHeight || document.body.clientHeight || 0
 
             if ((scrollHeight - scrollTop) <= clientHeight * 1.05)
             {    
@@ -283,23 +271,27 @@ function News() {
                 setTimeout(() => {
                     // console.log('hello world')
                     setFlag(true)
-                }, 1000);
+                }, 1000)
             }
         }
 
-        window.addEventListener('scroll', update);
+        window.addEventListener('scroll', update)
         return () => {
-            window.removeEventListener('scroll', update);
+            window.removeEventListener('scroll', update)
         }
     }, [])
 
     return (
         <div className={styles.center}>
             <div className={styles.content}>
-                <ul id={styles.content_list}>{data.array.map((item, index) => FeedBack(item, index))}</ul>
+                <ul id={styles.content_list}>
+                { data.array.map((item, index) => (
+                    <li key={index}> { FeedBack(item) } </li>
+                ))}
+                </ul>
             </div>
         </div>
     )
 }
 
-export default News
+export default Feed
