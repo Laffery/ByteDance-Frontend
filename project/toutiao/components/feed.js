@@ -2,7 +2,7 @@ import styles from '../styles/feed.module.css'
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { Protocol, IP, Port, Route, Site, URL } from '../config'
+import { Protocol, IP, Port, Route, Site, URL, _ } from '../config'
 
 var protocol = Protocol
 var ip = IP
@@ -44,14 +44,29 @@ function count_tag(num, tag) {
     return aggregate(num) + tag
 }
 
+function title_link(title, id) {
+    var router = {
+        pathname: '/post',
+        query: {
+            title: title,
+            id: id
+        }
+    }
+
+    return (
+        <div className={styles.title}>
+            <Link href={ router }><a>{ title }</a></Link>
+        </div>
+    )
+}
+
 function no_mode(item) {
     return (
         <div className={styles.content_card}>
             <div className={styles.content_text_card}>
-                <div className={styles.title}>
-                    <Link href='/post'><a>{ item.title }</a></Link>
-                    {/* <a href={Site + item.source_url} target='_blank' rel='noopener noreferrer'>{ item.title }</a> */}
-                </div>
+                
+                {title_link(item.title, item.group_id)}
+
                 <div className={styles.content_foot}>
                     <a className={styles.tag}>{tag(item)}</a>
                     <a className={styles.avatar} href={Site + item.media_url} target='_blank' rel='noopener noreferrer'>
@@ -78,10 +93,9 @@ function single_mode(item) {
                 </a>
             </div>
             <div className={styles.content_text_card_with_image}>
-                <div className={styles.title}>
-                    <Link href='/post'><a>{ item.title }</a></Link>
-                    {/* <a href={Site + item.source_url} target='_blank' rel='noopener noreferrer'>{ item.title }</a> */}
-                </div>
+
+                {title_link(item.title, item.group_id)}
+
                 <div className={styles.content_foot}>
                     <a className={styles.tag}>{tag(item)}</a>
                     <a className={styles.avatar} href={Site + item.media_url} target='_blank' rel='noopener noreferrer'>
@@ -152,10 +166,9 @@ function gallery_mode(item) {
                 </a>
             </div>
             <div className={styles.content_text_card_with_image}>
-                <div className={styles.title}>
-                    <Link href='/post'><a>{ item.title }</a></Link>
-                    {/* <a href={Site + item.source_url} target='_blank' rel='noopener noreferrer'>{ item.title }</a> */}
-                </div>
+                
+                {title_link(item.title, item.group_id)}
+
                 <div className={styles.content_foot}>
                     <a className={styles.tag}> { tag(item) } </a>
                     <a className={styles.avatar} href={Site + item.media_url} target='_blank' rel='noopener noreferrer'>
@@ -171,27 +184,6 @@ function gallery_mode(item) {
             </div>
         </div>
     )
-}
-
-function _() {
-    var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 0;
-    if (!e)
-        return ''
-    var t = 1e3 * 60;
-    var a = (new Date()).getTime() - 1e3 * e
-    var r = Math.floor(a / t)
-    if (r < 1)
-        return '\u521a\u521a'
-    if (r < 60)
-        return ''.concat(r, '\u5206\u949f\u524d')
-    else if (r < 60 * 24)
-        return ''.concat(Math.floor(r / 60), '\u5c0f\u65f6\u524d')
-    else if (r < 60 * 24 * 30)
-        return ''.concat(Math.floor(r / 1440), '\u5929\u524d')
-    else if (r < 60 * 24 * 30 * 12)
-        return ''.concat(Math.floor(r / 43200), '\u6708\u524d')
-    var d = new Date(e);
-    return d.getFullYear() + '\u5e74' + (d.getMonth() + 1) + '\u6708' + d.getDate() + '\u65e5'
 }
 
 function FeedBack(item) {

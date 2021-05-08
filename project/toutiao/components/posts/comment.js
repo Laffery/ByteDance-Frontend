@@ -12,7 +12,7 @@ function Comment() {
                 <div>
                     <div className={styles.avatar}></div>
                     <div className={styles.input_textarea}>
-                        <textarea placeholder="写下您的评论..." spellcheck="false" data_ms_editor="true"></textarea>
+                        <textarea placeholder="写下您的评论..." spellCheck="false" data_ms_editor="true"></textarea>
                         <div className={styles.input_footer}>
                             <button className={styles.submit_btn} type="button">评论</button>
                         </div>

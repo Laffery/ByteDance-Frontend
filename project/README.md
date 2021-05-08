@@ -32,7 +32,24 @@
     ![首页](README.assets/image-index.png)
 
     二级页面
+
+    二级页面文章内容的数据是写死的，其中文章内容的数据为jsx格式，我们处理成字符串，并使用**react-html-parser**模块进行解析
+
     ![二级页面](README.assets/image-page2.png)
+
+    由首页跳转到二级页面，采用**next/link**
+
+    ```jsx
+    <Link href={{
+        pathname: xx,
+        query: {
+            title: xx,
+            id: xx
+        }
+    }}><a></a></Link>
+    ```
+
+    这里我们通过`query`传递参数，由于前面说到二级页面的文章内容是写死的，**为体现页面跳转到不同的页面的效果，传递参数title作为二级页面的标题**，该title与首页中用户点击的新闻标题相关
 
 2. 本项目原本设计了爬取*今日头条*网站数据并转发给前端的[后台系统](../lesson-3-homework/Spider/server.js)，但是考虑到**断网的情况下可以正常运行、演示**的要求，最终决定采用写死的数据，但这与本项目中实现的**动态数据显示**并不冲突
 
