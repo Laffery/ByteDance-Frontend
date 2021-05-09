@@ -1,20 +1,17 @@
 import styles from '../../styles/posts/article.module.css'
 import { useState, useEffect } from 'react'
 import ReactHtmlParser from 'react-html-parser'
-import { useRouter } from 'next/router'
+import { withRouter } from 'next/router'
 
-function Article() {
+function Article({ router }) {
     const [state, setState] = useState({ data: {} })
-    const { query } = useRouter()
 
     useEffect(() => {
         fetch('/api/content').then(async res => {
             const resp = await res.json()
-            resp.data.title = query.title
-            setState({ 
+            setState({
                 data: { ...resp.data }
             })
-            console.log(resp.data)
         }).catch((e) => {
             console.log(e)
         })
@@ -22,7 +19,7 @@ function Article() {
 
     return (
         <div className={styles.article_wrapper}>
-            <h1>{ state.data.title }</h1>
+            <h1>{ router.query.title }</h1>
             <div className={styles.article_meta}>
                 <span className={styles.tag}>{ state.data.tag }</span>
                 <span>{ state.data.author }</span>
@@ -49,4 +46,4 @@ function Article() {
     )
 }
 
-export default Article
+export default withRouter(Article)

@@ -237,7 +237,7 @@ function Feed() {
             if (!tmp) tmp = []
             localStorage.setItem('data', JSON.stringify([...tmp, ...res.data]))
             setData({ array: JSON.parse(localStorage.getItem('data')) })
-            console.log( data.array )
+            // console.log( data.array )
         }).catch((e) => {
             console.log(e)
         })
