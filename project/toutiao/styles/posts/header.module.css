@@ -20,8 +20,43 @@
     float: left;
 }
 
+.item_more {
+    position: relative;
+    margin-right: 0;
+}
+
+.item_more:hover .more_icon {
+    transform: rotate(180deg);
+}
+
 .more_icon::before {
     content: '\e607';
+}
+
+.item_more:hover .nav_layer {
+    display: block;
+}
+
+.nav_layer {
+    display: none;
+    position: absolute;
+    top: 34px;
+    right: -32px;
+    width: 90px;
+    border: none;
+    color: #444;
+    z-index: 10;
+}
+
+.nav_more_item {
+    padding: 10px;
+    line-height: 10px;
+    text-align: center;
+    background: #fff;
+}
+
+.nav_more_item:hover {
+    background: #f4f5f6;
 }
 
 .right_nav {
