@@ -1,21 +1,27 @@
 import styles from '../../styles/posts/left.module.css'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 function Container() {
+    const [style, setStyle] = useState(styles.left_null)
     useEffect(() => {
-        window.addEventListener('scroll', () => {
+        function leftFixer() {
             var scrollTop = document.body.scrollTop || document.documentElement.scrollTop || 0
-            var element = document.getElementById('inner_wrapper')
             if (scrollTop >= 92)
-                element.setAttribute('class', styles.left_fixed)
+                setStyle(styles.left_fixed)
             else
-                element.removeAttribute('class', styles.left_fixed)
-        })
+                setStyle(styles.left_null)
+        }
+
+        window.addEventListener('scroll', leftFixer)
+
+        return () => {
+            window.removeEventListener('scroll', leftFixer)
+        }
     }, [])
 
     return (
         <div className={styles.tools_wrapper}>
-            <div id="inner_wrapper">
+            <div className={ style }>
                 <div className={styles.comment_count}>
                     <i className={'btn_icon ' + styles.comment_count_icon}></i>
                     <span>279</span>

@@ -199,10 +199,10 @@ function FeedBack(item) {
         return no_mode(item)
 }
 
-function Feed() {
+function Feed({ list }) {
     var [flag, setFlag] = useState(true);
     var [data, setData] = useState({
-        array: []
+        array: list
     }) // 由于useState好像没有数组的初始化，所以采用这种方式防止后面的map报错
 
     /*
@@ -237,7 +237,6 @@ function Feed() {
             if (!tmp) tmp = []
             localStorage.setItem('data', JSON.stringify([...tmp, ...res.data]))
             setData({ array: JSON.parse(localStorage.getItem('data')) })
-            // console.log( data.array )
         }).catch((e) => {
             console.log(e)
         })

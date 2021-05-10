@@ -1,3 +1,8 @@
+export const FE = {
+    Protocol: 'http',
+    IP: 'localhost',
+    PORT: '3000'
+}
 export const Protocol = 'http';
 // export const IP = 'localhost';
 export const IP = '175.24.127.98'; // my tencent cloud server's public ip

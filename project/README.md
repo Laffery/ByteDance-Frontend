@@ -53,10 +53,10 @@
 
 2. 本项目原本设计了爬取*今日头条*网站数据并转发给前端的[后台系统](../lesson-3-homework/Spider/server.js)，但是考虑到**断网的情况下可以正常运行、演示**的要求，最终决定采用写死的数据，但这与本项目中实现的**动态数据显示**并不冲突
 
-3. 本项目采用Next.js框架开发，**自带支持SSR**
+3. 本项目采用Next.js框架开发，**自带支持SSR**，使用`getServerSideProps`方法实现数据的拉取，进而实现服务端渲染。需要注意的是，该方法必须写在page下，在component下将不会调用
 
 4. LightHouse性能优化
 
 5. 代码通过[Github](https://github.com/Laffery/ByteDance-Frontend)持续集成
 
-6. 测试仅采用黑盒测试方法，对页面可用性进行测试
+6. 测试仅采用黑盒测试方法，通过浏览器点击对页面可用性进行测试

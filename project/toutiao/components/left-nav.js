@@ -11,18 +11,18 @@ function LeftNavItem(item, active) {
     )
 }
 
-function LeftNav() {
-    const [state, setState] = useState({ channels: []})
+function LeftNav({ data }) {
+    // const [state, setState] = useState({ channels: []})
     const [style, setStyle] = useState( styles.left_null )
     const [active, setActive] = useState(0)
     
     useEffect(() => {
-        fetch('/api/channels').then(async res => {
-            const resp = await res.json()
-            setState({ 
-                channels: resp.data
-            })
-        })
+        // fetch('/api/channels').then(async res => {
+        //     const resp = await res.json()
+        //     setState({ 
+        //         channels: resp.data
+        //     })
+        // })
 
         function leftFixer() {
             var scrollTop = document.body.scrollTop || document.documentElement.scrollTop || 0
@@ -49,7 +49,7 @@ function LeftNav() {
                 </div>
                 <div className={styles.channel_nav}>
                     <ul id={styles.channel_ul}>
-                        { state.channels.map((item) => LeftNavItem(item, state.channels[active] === item)) }
+                        { data.map((item) => LeftNavItem(item, data[active] === item)) }
                     </ul>
                 </div>
             </div>
