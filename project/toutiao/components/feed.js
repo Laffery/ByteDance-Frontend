@@ -1,5 +1,6 @@
 import styles from '../styles/feed.module.css'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { Protocol, IP, Port, Route, Site, URL, _ } from '../config'
@@ -68,11 +69,11 @@ function no_mode(item) {
                 {title_link(item.title, item.group_id)}
 
                 <div className={styles.content_foot}>
-                    <a className={styles.tag}>{tag(item)}</a>
+                    <a className={styles.tag} href={item.tag_url}>{tag(item)}</a>
                     <a className={styles.avatar} href={Site + item.media_url} target='_blank' rel='noopener noreferrer'>
-                        <img src={'https:' + item.media_avatar_url}/>
+                        <Image src={`https:${item.media_avatar_url}`} alt='avatar' width={18} height={18}/>
                     </a>
-                    <a>&nbsp;{item.source}&nbsp;·</a>
+                    <a href={item.media_url}>&nbsp;{ item.source }&nbsp;·</a>
                     <a href={Site + item.source_url + '//#comment-area'} target='_blank' rel='noopener noreferrer'>
                         &nbsp;{ count_tag(item.comments_count, '评论') }&nbsp;·</a>
                     <span>&nbsp;{ _(item.behot_time) }</span>
@@ -88,7 +89,7 @@ function single_mode(item) {
         <div className={styles.content_card}>
             <div className={styles.content_image}>
                 <a href={Site + item.source_url} target='_blank' rel='noopener noreferrer'>
-                    <img src={'https://' + item.image_url}/>
+                    <Image src={'https:' + item.image_url} alt={item.title} width={158} height={103}/>
                     { video_tip(item) }
                 </a>
             </div>
@@ -97,11 +98,11 @@ function single_mode(item) {
                 {title_link(item.title, item.group_id)}
 
                 <div className={styles.content_foot}>
-                    <a className={styles.tag}>{tag(item)}</a>
+                    <a className={styles.tag} href={item.tag_url}>{tag(item)}</a>
                     <a className={styles.avatar} href={Site + item.media_url} target='_blank' rel='noopener noreferrer'>
-                        <img src={'https:' + item.media_avatar_url}/>
+                        <Image src={`https:${item.media_avatar_url}`} alt='avatar' width={18} height={18}/>
                     </a>
-                    <a>&nbsp;{item.source}&nbsp;·</a>
+                    <a href={item.media_url}>&nbsp;{ item.source }&nbsp;·</a>
                     <a href={Site + item.source_url + '//#comment-area'} target='_blank' rel='noopener noreferrer'>
                         &nbsp;{ count_tag(item.comments_count, '评论') }&nbsp;·</a>
                     <span>&nbsp;{ _(item.behot_time) }</span>
@@ -120,7 +121,7 @@ function ugc_mode(item) {
             { len ? (
             <div className={styles.content_image_ugc}>
                 <a href={Site + item.source_url} target='_blank' rel='noopener noreferrer'>
-                    <img src={'https://' + item.ugc_data.ugc_images[0]} />
+                    <Image src={`https://${item.ugc_data.ugc_images[0]}`} alt='cover' width={158} height={158}/>
                     { len > 1 ? (<i className='video-tip'><span> {len} 图</span></i>) : '' }
                 </a>
             </div>
@@ -129,7 +130,7 @@ function ugc_mode(item) {
                 <div className={styles.ugc_user}>
                     <div className={styles.ugc_user_avatar}>
                         <a href={Site + item.ugc_data.ugc_user.open_url} target='_blank' rel='noopener noreferrer'>
-                            <img src={ item.ugc_data.ugc_user.avatar_url } />
+                            <Image src={item.ugc_data.ugc_user.avatar_url} alt='avatar' width={46} height={46}/>
                         </a>
                     </div>
                     <div className={ugc_user_name}>
@@ -161,7 +162,7 @@ function gallery_mode(item) {
         <div className={styles.content_card}>
             <div className={styles.content_image}>
                 <a href={Site + item.source_url} target='_blank' rel='noopener noreferrer'>
-                    <img src={'https://' + item.image_url} />
+                    <Image src={`https://${item.image_url}`} alt={item.title} width={158} height={103}/>
                     { video_tip(item) }
                 </a>
             </div>
@@ -170,11 +171,11 @@ function gallery_mode(item) {
                 {title_link(item.title, item.group_id)}
 
                 <div className={styles.content_foot}>
-                    <a className={styles.tag}> { tag(item) } </a>
+                    <a className={styles.tag} href={item.tag_url}> { tag(item) } </a>
                     <a className={styles.avatar} href={Site + item.media_url} target='_blank' rel='noopener noreferrer'>
-                        <img src={'https:' + item.media_avatar_url} />
+                        <Image src={`https:${item.media_avatar_url}`} alt='avatar' width={18} height={18}/>
                     </a>
-                    <a>&nbsp;{ item.source }&nbsp;·</a>
+                    <a href={item.media_url}>&nbsp;{ item.source }&nbsp;·</a>
                     <a href={Site + item.source_url + '//#comment-area' } target='_blank' rel='noopener noreferrer'>
                         &nbsp;{ count_tag(item.comments_count, '评论') }&nbsp;·
                     </a>
@@ -260,7 +261,6 @@ function Feed({ list }) {
                 setFlag(false);
                 pull();
                 setTimeout(() => {
-                    // console.log('hello world')
                     setFlag(true)
                 }, 1000)
             }

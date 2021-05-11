@@ -11,7 +11,7 @@ const channels = [
     { tag: '懂车帝', url: 'https://www.dongchedi.com/?zt=tt_pc_home_channel' },
     { tag: '财经', url: 'https://www.toutiao.com/ch/news_finance/' },
     { tag: '数码', url: 'https://www.toutiao.com/ch/digital/' },
-    { tag: '更多', url: '' }
+    { tag: '更多', url: '/' }
 ]
 
 export default (req, res) => {

@@ -13,6 +13,7 @@ export default function Home({ channels, list }) {
   return (
     <div>
       <Head>
+        <meta name='description' content='今日头条'></meta>
         <title>今日头条</title>
         <link rel='icon' href='/favicon.ico'/>
       </Head>

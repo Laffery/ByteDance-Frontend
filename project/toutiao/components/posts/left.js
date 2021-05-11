@@ -1,5 +1,6 @@
 import styles from '../../styles/posts/left.module.css'
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 function Container() {
     const [style, setStyle] = useState(styles.left_null)
@@ -30,7 +31,7 @@ function Container() {
                 <ul className={styles.share_tools}>
                     <li>
                         <div className={styles.article_repost}>
-                            <img className={styles.repost_img} src="//s3.pstatp.com/toutiao/static/img/repost.021bf16.png"/>
+                            <Image width={34} height={35} alt='repost' className={styles.repost_img} src="https://s3.pstatp.com/toutiao/static/img/repost.021bf16.png"/>
                             <span>转发</span>
                         </div>
                     </li>

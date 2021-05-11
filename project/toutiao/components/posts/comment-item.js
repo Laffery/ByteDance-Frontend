@@ -1,11 +1,12 @@
 import styles from '../../styles/posts/comment-item.module.css'
+import Image from 'next/image'
 
 function Comment_Item() {
     return (
         <div className={styles.comment_item}>
             <a className={styles.comment_avatar} href="/c/user/51741424949/" target="_blank" rel="noopener noreferrer">
                 <div>
-                    <img src="https://p9.pstatp.com/img/mosaic-legacy/aad60015f15d4660a352~c5_300x300.image"/>
+                    <Image alt='avatar' width={30} height={30} src="https://p9.pstatp.com/img/mosaic-legacy/aad60015f15d4660a352~c5_300x300.image"/>
                 </div>
             </a>
             <div style={{marginLeft: '42px'}}>

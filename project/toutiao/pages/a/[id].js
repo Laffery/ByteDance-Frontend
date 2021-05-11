@@ -13,7 +13,8 @@ export default function Article({ channels, content, list }) {
     return (
     <div>
         <Head>
-            <title>{ query.title }</title>
+            <meta name='description' content='今日头条'></meta>
+            <title>{ query.title ? query.title : '今日头条' }</title>
             <link rel='icon' href='/favicon.ico'/>
         </Head>
         <div style={{ marginBottom: '16px' }}>

@@ -5,7 +5,7 @@ import { withRouter } from 'next/router'
 function Article({ router, data }) {
     return (
         <div className={styles.article_wrapper}>
-            <h1>{ router.query.title }</h1>
+            <h1>{ router.query.title ? router.query.title : data.title }</h1>
             <div className={styles.article_meta}>
                 <span className={styles.tag}>{ data.tag }</span>
                 <span>{ data.author }</span>

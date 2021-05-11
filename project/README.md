@@ -12,7 +12,7 @@
     - 首页可以导航到二级页面 ✅
     - 支持SSR ✅
 4. 高级功能如下
-    - 性能优化到足够好（LightHouse的结果）
+    - 性能优化到足够好（LightHouse的结果）✅
     - 离线化的支持
     - PWA支持
 5. 项目中的关键点
@@ -22,13 +22,14 @@
     - 组件的划分和管理 ✅
     - 异步操作的处理和状态管理
     - 项目的构建、打包优化、发布 ✅
-    - 测试
+    - 测试 ✅
 
 ## 说明
 
 1. 本项目复刻已有产品，成品展示如下
 
     首页
+
     ![首页](README.assets/image-index.png)
 
     二级页面
@@ -57,6 +58,18 @@
 
 4. LightHouse性能优化
 
-5. 代码通过[Github](https://github.com/Laffery/ByteDance-Frontend)持续集成
+    生成的优化结果文件参见[lighthouse](./lighthouse/)目录
+
+    效果如下：
+
+    首页
+
+    ![lighthouse-index](README.assets/image-index-lighthouse.png)
+
+    二级页面
+
+    ![lighthouse-a](README.assets/image-page2-lighthouse.png)
+
+5. 代码通过[Github Repo](https://github.com/Laffery/ByteDance-Frontend/tree/master/project)持续集成
 
 6. 测试仅采用黑盒测试方法，通过浏览器点击对页面可用性进行测试
