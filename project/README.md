@@ -37,16 +37,16 @@
 
     ![二级页面](README.assets/image-page2.png)
 
-    由首页跳转到二级页面，采用**next/link**
+    由首页跳转到二级页面，采用**next/link**`动态路由`
 
     ```jsx
     <Link href={{
-        pathname: xx,
+        pathname: '/a/[id]',
         query: {
             title: xx,
             id: xx
         }
-    }}><a></a></Link>
+    }} as={`/a/${id}`}><a>xxx</a></Link>
     ```
 
     这里我们通过`query`传递参数，由于前面说到二级页面的文章内容是写死的，**为体现页面跳转到不同的页面的效果，传递参数title作为二级页面的标题**，该title与首页中用户点击的新闻标题相关

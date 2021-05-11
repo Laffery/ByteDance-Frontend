@@ -1,15 +1,15 @@
-import Header from '../components/posts/header'
-import Middle from '../components/posts/middle'
-import Left from '../components/posts/left'
-import Center from '../components/posts/center'
-import Right from '../components/posts/right'
+import Header from '../../components/posts/header'
+import Middle from '../../components/posts/middle'
+import Left from '../../components/posts/left'
+import Center from '../../components/posts/center'
+import Right from '../../components/posts/right'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { FE, URL } from '../config'
+import { FE, URL } from '../../config'
 
 export default function Article({ channels, content, list }) {
     const { query } = useRouter()
-    
+
     return (
     <div>
         <Head>

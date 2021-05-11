@@ -46,7 +46,7 @@ function count_tag(num, tag) {
 
 function title_link(title, id) {
     var router = {
-        pathname: '/post',
+        pathname: '/a/[id]',
         query: {
             title: title,
             id: id
@@ -55,7 +55,7 @@ function title_link(title, id) {
 
     return (
         <div className={styles.title}>
-            <Link href={ router }><a>{ title }</a></Link>
+            <Link href={router} as={`/a/${id}`}><a>{ title }</a></Link>
         </div>
     )
 }
@@ -140,9 +140,9 @@ function ugc_mode(item) {
                     </div>
                 </div>
                 <div className={styles.ugc_content}>
-                    <a href={Site + '/group/' + item.group_id } target='_blank' rel='noopener noreferrer'>
-                        { item.title }
-                    </a>
+                    
+                    {title_link(item.title, item.group_id)}
+
                 </div>
                 <div className={styles.content_foot}>
                     <a href={Site + item.source_url + '//#comment-area'} target='_blank' rel='noopener noreferrer'>&nbsp;{ count_tag(item.ugc_data.digg_count, '赞') }&nbsp;·</a>
